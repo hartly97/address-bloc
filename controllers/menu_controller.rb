@@ -14,7 +14,8 @@ require_relative '../models/address_book'
      puts "2 - Create an entry"
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
-     puts "5 - Exit"
+     puts "5 - View entry Number"
+     puts "6 - Exit"
      print "Enter your selection: "
 
      # #3 retrieve user input from the command line using
@@ -25,7 +26,7 @@ require_relative '../models/address_book'
 
     # #7
     case selection
-      
+
       when 1
         system "clear"
         view_all_entries
@@ -43,10 +44,13 @@ require_relative '../models/address_book'
         read_csv
         main_menu
       when 5
+        system "clear"
+        view_by_n
+      when 6
         puts "Good-bye!"
         # #8
         exit(0)
-      # #9
+        # #9
       else
         system "clear"
         puts "Sorry, that is not a valid input"
@@ -55,9 +59,9 @@ require_relative '../models/address_book'
   end
 
 
-      # #10
+        # #10
       def view_all_entries
-       # #14
+        # #14
        address_book.entries.each do |entry|
        system "clear"
        puts entry.to_s
