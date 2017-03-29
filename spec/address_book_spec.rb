@@ -1,9 +1,3 @@
-#address_book_spec.rb
-#attribute to hold the array of entries.
-#The entries array will store entries.
-#It also provides an easy way to add, remove,
-# and count entries.
-
 require_relative '../models/address_book'
 
 RSpec.describe AddressBook do
@@ -40,8 +34,8 @@ RSpec.describe AddressBook do
       expect(new_entry.phone_number).to eq('010.012.1815')
       expect(new_entry.email).to eq('augusta.king@lovelace.com')
     end
-  end
-  #assignment #5
+
+
   describe "#remove_entry" do
     it "removes only one entry from the address book" do
       book = AddressBook.new
@@ -54,7 +48,6 @@ RSpec.describe AddressBook do
       expect(book.entries.size).to eq(2)
 
       book.remove_entry(name, phone_number, email)
-
       expect(book.entries.size).to eq(1)
     end
   end

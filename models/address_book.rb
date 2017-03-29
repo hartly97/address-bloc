@@ -1,4 +1,3 @@
-#models/address_book.rb
 #turn them green by creating add_entry. To keep entries nicely
 #ordered we'll code add_entry to insert entries in lexicographical order.
 
@@ -34,4 +33,4 @@
      # #11 insert a new entry into entries using the calculated `index.
      entries.insert(index, Entry.new(name, phone_number, email))
    end
- end
+ 
