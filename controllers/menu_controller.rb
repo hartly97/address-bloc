@@ -25,7 +25,7 @@ require_relative '../models/address_book'
 
     # #7
     case selection
-      
+
       when 1
         system "clear"
         view_all_entries
@@ -69,8 +69,19 @@ require_relative '../models/address_book'
      puts "End of entries"
     end
 
+#not sure
+    def view_by_n
+      system "clear"
+      puts "What is the entry number?"
+      number = gets.chomp
 
-
+      if number.to_i < address_book.entries.length
+        print address_book.entries[number.to_i]
+      else
+        print "that is an invalid entry, please try again"
+      end
+    end
+#not sure
 
 
 
