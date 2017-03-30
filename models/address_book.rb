@@ -12,7 +12,6 @@
      def initialize
        @entries = []
      end
- end
 
    def add_entry(name, phone_number, email)
 
@@ -33,4 +32,4 @@
      # #11 insert a new entry into entries using the calculated `index.
      entries.insert(index, Entry.new(name, phone_number, email))
    end
- 
+ end
