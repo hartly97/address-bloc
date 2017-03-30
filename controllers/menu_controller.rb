@@ -7,8 +7,7 @@ require_relative '../models/address_book'
      @address_book = AddressBook.new
    end
 
-   def main_menu
-     # #2 display the main menu options to the command line
+   def main_menu # #2 main menu opt cmd line
      puts "Main Menu - #{address_book.entries.count} entries"
      puts "1 - View all entries"
      puts "2 - Create an entry"
@@ -17,14 +16,10 @@ require_relative '../models/address_book'
      puts "5 - Exit"
      print "Enter your selection: "
 
-     # #3 retrieve user input from the command line using
-     #gets reads the next line from standard input.
-     gets
+     gets # #3 retrieve user input
      selection = gets.to_i
 
-
-    # #7
-    case selection
+    case selection # #7
 
       when 1
         system "clear"
@@ -44,32 +39,27 @@ require_relative '../models/address_book'
         main_menu
       when 5
         puts "Good-bye!"
-        # #8
-        exit(0)
-      # #9
-      else
+        exit(0)# #8
+
+      else # #9
         system "clear"
         puts "Sorry, that is not a valid input"
         main_menu
     end
   end
 
-
-      # #10
-      def view_all_entries
-       # #14
-       address_book.entries.each do |entry|
+      def view_all_entries # #10
+       address_book.entries.each do |entry|# #14
        system "clear"
        puts entry.to_s
-      # #15
-       entry_submenu(entry)
+       entry_submenu(entry)  # #15
       end
 
      system "clear"
      puts "End of entries"
     end
 
-#not sure
+
     def view_by_n
       system "clear"
       puts "What is the entry number?"
@@ -81,24 +71,17 @@ require_relative '../models/address_book'
         print "that is an invalid entry, please try again"
       end
     end
-#not sure
-
-
 
       def create_entry
-       # #11
-       system "clear"
+       system "clear" # #11
        puts "New AddressBloc Entry"
-       # #12
-       print "Name: "
+       print "Name: " # #12
        name = gets.chomp
        print "Phone number: "
        phone = gets.chomp
        print "Email: "
        email = gets.chomp
-
-       # #13
-       address_book.add_entry(name, phone, email)
+       address_book.add_entry(name, phone, email) # #13
 
        system "clear"
        puts "New entry created"
@@ -117,17 +100,13 @@ require_relative '../models/address_book'
      puts "e - edit this entry"
      puts "m - return to main menu"
 
-     # #17
-     selection = gets.chomp
+     selection = gets.chomp # #17
 
      case selection
-     # #18
-       when "n"
-     # #19
-       when "d"
+       when "n" # #18
+       when "d" # #19
        when "e"
-     # #20
-       when "m"
+       when "m"# #20
          system "clear"
          main_menu
        else

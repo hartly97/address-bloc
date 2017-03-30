@@ -3,8 +3,7 @@ require_relative '../models/entry' #imports class into our test
  # #1 file is a spec file and that it tests Entry.
  RSpec.describe Entry do
 
-     # #2 use describe to give our test structure. In this case,
-      #we're using it to communicate that the specs test the Entry attributes.
+     # #2 describe our test structure. specs test the Entry attributes.
    describe "attributes" do
      let(:entry) { Entry.new('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com') }
 
@@ -13,9 +12,7 @@ require_relative '../models/entry' #imports class into our test
         #Each it represents a unique test.
      it "responds to name" do
      # #4 each RSpec test ends with one or more expect
-          #method, which we use to declare the expectations
-          #for the test. If those expectations are met, our
-          #test passes
+          #method, used to decl test expect
           expect(entry).to respond_to(:name)
      end
 
@@ -42,14 +39,14 @@ require_relative '../models/entry' #imports class into our test
      end
    end
 
-   # #5 we use a new describe block to separate the to_s test from the initializer tests.
-    #The # in front of to_s indicates that it is an instance method.
+   # #5 describe block to separate to_s test from init tests.
+    # # to_s indicates instance method.
     describe "#to_s" do
       it "prints an entry as a string" do
         entry = Entry.new('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
         expected_string = "Name: Ada Lovelace\nPhone Number: 010.012.1815\nEmail: augusta.king@lovelace.com"
 
-    # #6 we use eq to check that to_s returns a string equal to expected_string
+    # #6 use eq to check to_s rtns a str == to expected_string
       expect(entry.to_s).to eq(expected_string)
     end
   end
