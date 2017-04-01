@@ -9,3 +9,5 @@ require_relative 'controllers/menu_controller'
 
  # #6 call main_menu to display the menu.
  menu.main_menu
+
+ 

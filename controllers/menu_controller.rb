@@ -16,7 +16,8 @@ require_relative '../models/address_book'
      puts "5 - Exit"
      print "Enter your selection: "
 
-     gets # #3 retrieve user input
+    #  # gets removed
+     # #3 retrieve user input
      selection = gets.to_i
 
     case selection # #7
