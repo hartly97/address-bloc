@@ -13,7 +13,8 @@ require_relative '../models/address_book'
      puts "2 - Create an entry"
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
-     puts "5 - Exit"
+     puts "5 - Delete all entries"
+     puts "6 - Exit"
      print "Enter your selection: "
 
     #  # gets removed
@@ -38,7 +39,13 @@ require_relative '../models/address_book'
         system "clear"
         read_csv
         main_menu
+
       when 5
+        system "clear"
+        nuke_them
+        main_menu
+
+      when 6
         puts "Good-bye!"
         exit(0)# #8
 
@@ -46,6 +53,22 @@ require_relative '../models/address_book'
         system "clear"
         puts "Sorry, that is not a valid input"
         main_menu
+    end
+  end
+
+  def nuke_them
+   puts "Are you sure you want to delete *all* entries? (Y/N)"
+   selection = gets.chomp
+   if selection.downcase == "y"
+
+     address_book.entries.clear()
+
+   elsif selection.downcase == "n"
+       main_menu
+
+     else
+       puts "Input not valid. Returning to main menu"
+       main_menu
     end
   end
 
