@@ -49,29 +49,30 @@ require_relative '../models/address_book'
     end
   end
 
-      def view_all_entries # #10
-       address_book.entries.each do |entry|# #14
-       system "clear"
-       puts entry.to_s
-       entry_submenu(entry)  # #15
+  def view_all_entries # #10
+      address_book.entries.each do |entry|# #14
+        system "clear"
+        puts entry.to_s
+
+        entry_submenu(entry)  # #15
       end
 
-     system "clear"
-     puts "End of entries"
-    end
-
-
-    def view_by_n
       system "clear"
-      puts "What is the entry number?"
-      number = gets.chomp
+      puts "End of entries"
+  end
 
-      if number.to_i < address_book.entries.length
-        print address_book.entries[number.to_i]
-      else
-        print "that is an invalid entry, please try again"
-      end
-    end
+
+    #def view_by_n
+    #  system "clear"
+    #  puts "What is the entry number?"
+    #  number = gets.chomp
+
+      #if number.to_i < address_book.entries.length
+      #  print address_book.entries[number.to_i]
+      #else
+      #  print "that is an invalid entry, please try again"
+      #end
+    #end
 
       def create_entry
        system "clear" # #11

@@ -22,9 +22,6 @@
      entries.insert(index, Entry.new(name, phone_number, email))
   end
 
-  def remove_entry(name, phone_number, email) # #11 insert a new entry into entries using the calculated `index.
-   entries.delete_if{|entry| entry.name == name }
-  end
 
   def import_from_csv(file_name)# #7 use the CSV class to parse the file
     # Implementation goes here
@@ -36,4 +33,33 @@
     end
   end
 
-end
+  # Search AddressBook for a specific entry by name
+ def binary_search(name)
+     # #1 rightmost item is the entries.length-1
+     lower = 0
+     upper = entries.length - 1
+
+     # #2 lower index is less than or equal to our upper index.
+     while lower <= upper
+       # #3 store it in mid_name
+       mid = (lower + upper) / 2
+       mid_name = entries[mid].name
+
+       # #4 compare for name, to the name of  middle index, mid_name
+       if name == mid_name
+         return entries[mid]
+       elsif name < mid_name
+         upper = mid - 1
+       elsif name > mid_name
+         lower = mid + 1
+       end
+     end
+
+     # #5
+     return nil
+   end
+
+   def remove_entry(name, phone_number, email) # #11 insert a new entry into entries using the calculated `index.
+    entries.delete_if{|entry| entry.name == name }
+   end
+ end
