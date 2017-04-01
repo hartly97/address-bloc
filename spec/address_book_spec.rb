@@ -18,7 +18,6 @@ RSpec.describe AddressBook do
     it "responds to entries" do
       expect(book).to respond_to(:entries)
     end
-  end
 
   it "initializes entries as an array" do
     expect(book.entries).to be_an(Array)
@@ -27,8 +26,8 @@ RSpec.describe AddressBook do
   it "initializes entries as empty" do
     expect(book.entries.size).to eq(0)
   end
-
-  describe "#add_entry" do
+end
+  context "#add_entry" do
     it "adds only one entry to the address book" do
       book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
       expect(book.entries.size).to eq(1)
@@ -44,7 +43,7 @@ RSpec.describe AddressBook do
     end
   end
 
-  describe "#remove_entry" do
+  context "#remove_entry" do
     it "removes only one entry from the address book" do
       book = AddressBook.new
       book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
@@ -65,7 +64,7 @@ RSpec.describe AddressBook do
 
 
   # Test that AddressBook's .import_from_csv() method is working
-  describe "#import_from_cvs" do
+  describe "#import_from_csv" do
     it "imports the correct number of entries" do
       # #3
       book.import_from_csv("entries.csv")#pass string as parameter
@@ -75,7 +74,7 @@ RSpec.describe AddressBook do
 
 
   it "imports the 1st entry" do # #4 first entry our AddressBook stores.
-    book.import_from_csv("entries_2.csv")
+    book.import_from_csv("entries.csv")
     # Check the first entry
     entry_one = book.entries[0]
 
@@ -84,7 +83,7 @@ RSpec.describe AddressBook do
   end
 
   it "imports the 2nd entry" do
-    book.import_from_csv("entries_2.csv")
+    book.import_from_csv("entries.csv")
     # Check the second entry
     entry_two = book.entries[1]
     check_entry(entry_two, "Bob", "555-555-5415", "bob@blocmail.com")
@@ -112,32 +111,30 @@ RSpec.describe AddressBook do
   end
 end
 
+    describe "importing from entries_2.csv"
+      it "imports correct number of entries" do
+      book.import_from_csv("entries_2.csv")
 
-  describe "#import_from_another_csv" do
-  it "imports correct number of entries" do
-    # #3 after the describe and it statements, we call the import_from_csv method
-    book.import_from_csv("entries_2.csv")
-    book_size = book.entries.size
+      expect(book_entries.size).to eq 3
 
-    expect(book.size).to eq 3
-  end
+    end
 
-  it "imports the 1st entry" do
+    it "imports the 1st entry" do
         book.import_from_csv("entries_2.csv")
         entry_one = book.entries[0]
         check_entry(entry_one, "Michelle", "555-555-3699", "michelle@blocmail.com")
-  end
+    end
 
-  it "imports the 2nd entry" do
-        book.import_from_csv("entries_2.csv")
-        entry_two = book.entries[1]
-        check_entry(entry_two, "Ethan", "555-555-5455", "ethan@blocmail.com")
-  end
+    it "imports the 2nd entry" do
+          book.import_from_csv("entries_2.csv")
+          entry_two = book.entries[1]
+          check_entry(entry_two, "Ethan", "555-555-5455", "ethan@blocmail.com")
+    end
 
     it "imports the 3rd entry" do
-        book.import_from_csv("entries_2.csv")
-        entry_three = book.entries[2]
-        check_entry(entry_three, "David", "555-555-4800", "david@blocmail.com")
+          book.import_from_csv("entries_2.csv")
+          entry_three = book.entries[2]
+          check_entry(entry_three, "David", "555-555-4800", "david@blocmail.com")
+
     end
   end
- end
