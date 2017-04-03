@@ -39,12 +39,12 @@ require_relative '../models/address_book'
         read_csv
         main_menu
       when 5
-        puts "Good-bye!"
+        puts "Have a great day! Good-bye!"
         exit(0)# #8
 
       else # #9
         system "clear"
-        puts "Sorry, that is not a valid input"
+        puts "Sorry, not a valid input"
         main_menu
     end
   end
@@ -208,5 +208,4 @@ end
        search_submenu(entry)
    end
   end
-end
 end
