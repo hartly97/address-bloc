@@ -156,7 +156,7 @@ require_relative '../models/address_book'
         puts "#{selection} is not a valid input"
         entry_submenu(entry)
     end
-
+end
    def delete_entry(entry)
      address_book.entries.delete(entry)
      puts "#{entry.name} has been deleted"
@@ -208,4 +208,5 @@ require_relative '../models/address_book'
        search_submenu(entry)
    end
   end
+end
 end

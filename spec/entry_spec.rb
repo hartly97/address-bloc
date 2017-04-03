@@ -1,3 +1,4 @@
+###### Don't change ############
 require_relative '../models/entry' #imports class into our test
 
  # #1 file is a spec file and that it tests Entry.
@@ -36,7 +37,7 @@ require_relative '../models/entry' #imports class into our test
       #  entry = Entry.new('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
         expect(entry.email).to eq('augusta.king@lovelace.com')
      end
-   end
+
 
     # #5 describe block to separate to_s test from init tests.
     # # to_s indicates instance method.
@@ -48,5 +49,6 @@ require_relative '../models/entry' #imports class into our test
         # #6 use eq to check to_s rtns a str == to expected_string
         expect(entry.to_s).to eq(expected_string)
       end
-   end
+    end
+  end
 end

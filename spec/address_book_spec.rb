@@ -6,12 +6,26 @@ RSpec.describe AddressBook do
   let(:book) { AddressBook.new }
 
   # #6 helper method to check each entry
-  def check_entry(entry, expected_name, expected_number, expected_email)# #6 consolidates the redundant code
+  def check_entry(entry, expected_name, expected_number, expected_email)
     expect(entry.name).to eq(expected_name)
     expect(entry.phone_number).to eq(expected_number)
     expect(entry.email).to eq(expected_email)
   end
 
+
+########################### assignment #9 #######################
+  context "#nuke" do
+		it "should delete all entries" do
+			book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+			book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+			book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+
+			book.nuke
+			expect(book.entries.size).to eq(0)
+		end
+	end
+
+#########################  #######################
   # #2 it expl funct of meth we're test
   # # RSpec takes content from describe & it, output to cmd ln
   describe "attributes" do
@@ -28,6 +42,8 @@ RSpec.describe AddressBook do
   end
 end
 
+
+######################### Add entry #######################
   context "#add_entry" do
     it "adds only one entry to the address book" do
       book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
@@ -46,6 +62,7 @@ end
   end
 
 
+    ######################### CSV import #######################
   # Test that AddressBook's .import_from_csv() method is working
   describe "#import_from_csv" do
     it "imports the correct number of entries" do
@@ -57,8 +74,8 @@ end
       expect(book_size).to eq 5 # Check size of entries in AddBk.
     end
 
-
-  it "imports the 1st entry" do # #4 first entry our AddressBook stores.
+    # #4 first entry our AddressBook stores.
+  it "imports the 1st entry" do
     book.import_from_csv("entries.csv")
     # Check the first entry
     entry_one = book.entries[0]
@@ -97,6 +114,8 @@ end
   end
 end
 
+
+    ######################### remove entry #######################
 context "#remove_entry" do
   it "removes only one entry from the address book" do
     book = AddressBook.new
@@ -116,6 +135,7 @@ context "#remove_entry" do
 end
 
 
+  ######################### Binary Search #######################
   # Test the binary_search method #8
      describe "#binary_search" do
        it "searches AddressBook for a non-existent entry" do
@@ -124,7 +144,7 @@ end
          expect(entry).to be_nil
        end
 
-       it "searches AddressBook for Bill" do
+          it "searches AddressBook for Bill" do
             book.import_from_csv("entries.csv")
             entry = book.binary_search("Bill")
             expect(entry).to be_a Entry
@@ -164,4 +184,7 @@ end
           expect(entry).to be_nil
         end
       end
+
+      ######################### Iterative search #######################
+
     end
